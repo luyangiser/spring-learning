@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/beans/context">
+       
+	<!-- <bean id="compactDisc" class="org.lu.spring_test01.SgtPeppers"/> -->
+	
+	<bean id="compactDisc" class="org.lu.spring_test01.BlankDisc">
+		<constructor-arg value="woaibeijingtiananmen"/>
+		<constructor-arg value="me"/>
+	</bean>
+	
+	<!-- 等价于上面 -->
+	<!-- <bean id="compactDisc" class="org.lu.spring_test01.BlankDisc" 
+	c:_title="woaibeijingtiananmen"
+	c:_artist="me" /> -->
+	<!-- 等价于上面，如果存在构造器重载的情况，这种方法不可行 -->
+	<!-- <bean id="compactDisc" class="org.lu.spring_test01.BlankDisc" 
+	c:_0="woaibeijingtiananmen"
+	c:_1="me" /> -->
+	<!-- 等价于上面，如果存在构造器重载的情况，这种方法不可行 -->
+	<!-- <bean id="compactDisc" class="org.lu.spring_test01.BlankDisc" 
+	c:_0="woaibeijingtiananmen"
+	c:_1="me" /> -->
+	<!-- 适用于只有一个构造器，且只有一个参数的情况 -->
+	<!-- <bean id="compactDisc" class="org.lu.spring_test01.BlankDisc" 
+	c:_="woaibeijingtiananmen"/> -->
+	
+	<!-- <bean id="cdPlayer" class="org.lu.spring_test01.CDPlayer">
+		<constructor-arg ref="compactDisc"/>
+	</bean> -->
+	<!-- 等价于上面 -->
+	<bean id="cdPlayer" class="org.lu.spring_test01.CDPlayer" c:cd-ref="compactDisc"/>
+	<!-- 等价于上面 -->
+	<!-- <bean id="cdPlayer" class="org.lu.spring_test01.CDPlayer" c:_0-ref="compactDisc"/> -->
+	<!-- 等价于上面 -->
+	<!-- <bean id="cdPlayer" class="org.lu.spring_test01.CDPlayer" c:_-ref="compactDisc"/> -->
+</beans>
