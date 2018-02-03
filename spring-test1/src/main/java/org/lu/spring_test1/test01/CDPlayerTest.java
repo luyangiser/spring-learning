@@ -47,5 +47,9 @@ public class CDPlayerTest {
 		compactDisc.playTrack(1);
 		compactDisc.playTrack(1);
 		compactDisc.playTrack(1);
+		compactDisc.playTrack(2);
+		compactDisc.playTrack(1);
+		compactDisc.playTrack(2);
+		compactDisc.playTrack(2);
 	}
 }
